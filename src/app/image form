@@ -1,0 +1,32 @@
+  <form #f="ngForm" (ngSubmit)="onSubmitform(f)">
+    <input type="file"  name="myFile" (change)="fileEvent($event)"/>
+    <button>Upload Image</button>
+  </form>
+
+
+
+
+  filedata: any;
+
+  /* File onchange event */
+  fileEvent(e: any) {
+    this.filedata = e.target.files[0];
+  }
+
+  /* Upload button functioanlity */
+  onSubmitform(f: NgForm) {
+    console.log("Submitting")
+
+    var myFormData = new FormData();
+    const headers = new HttpHeaders();
+    headers.append('Content-Type', 'multipart/form-data');
+    headers.append('Accept', 'application/json');
+    myFormData.append('image', this.filedata);
+    /* Image Post Request */
+    this.http.post('http://localhost/save_image.php', myFormData, {
+      headers: headers
+    }).subscribe(data => {
+      //Check success message
+      console.log(data);
+    });
+  }

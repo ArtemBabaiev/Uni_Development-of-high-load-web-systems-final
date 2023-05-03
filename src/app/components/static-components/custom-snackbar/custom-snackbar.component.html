@@ -1,0 +1,7 @@
+<span div fxLayout="row" fxLayoutAlign="start center"  matSnackBarLabel >
+  <mat-icon>{{ data?.icon }}</mat-icon>
+  {{data?.message}}
+</span>
+<span matSnackBarActions>
+  <button mat-button matSnackBarAction (click)="snackBarRef.dismissWithAction()">Close</button>
+</span>

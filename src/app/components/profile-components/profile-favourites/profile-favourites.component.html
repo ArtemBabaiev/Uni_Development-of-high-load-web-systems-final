@@ -1,0 +1,26 @@
+<div class="product-grid"
+     fxLayout="row wrap"
+     fxFlexAlign="center"
+     fxLayoutAlign="space-evenly center"
+     fxLayoutGap="15px 15px grid">
+  <ng-container
+    *ngFor="let movie of movies">
+    <div>
+      <mat-card class="movie-card" matRipple>
+        <img mat-card-image src="http://localhost/assets/img/{{movie.id}}.jpg" alt="Movie" class="movie-image">
+        <mat-card-header>
+          <mat-card-title>{{movie.title}}</mat-card-title>
+          <mat-card-subtitle>{{movie.releaseYear}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-actions>
+          <button mat-icon-button (click)="onFavouriteClick(movie)">
+            <mat-icon>{{authService.getAuthUser() != null ? authService.getAuthUser().favourites.includes(movie.id) == true ? 'favorite' : 'favorite_border' : 'favorite_border'}}</mat-icon>
+          </button>
+          <a mat-button routerLink="/movie/{{movie.id}}">
+            View full info
+          </a>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </ng-container>
+</div>

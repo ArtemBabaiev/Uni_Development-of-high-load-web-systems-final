@@ -1,0 +1,29 @@
+.product-grid{
+  /*  display: grid;
+    width: 100%;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+    justify-items: center;*/
+  //padding-left: 15px;
+}
+
+.movie-card {
+  width: 300px;
+  padding-top: 15px;
+
+}
+
+.movie-image{
+  align-self: center;
+  width: auto;
+  height: 360px;
+}
+mat-card-actions{
+  margin-top: auto;
+}
+
+.movie-control{
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}

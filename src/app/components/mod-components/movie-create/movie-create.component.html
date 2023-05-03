@@ -1,0 +1,34 @@
+<div class="form-container">
+  <form (ngSubmit)="onSubmitClick(movieGroup.value)" [formGroup]="movieGroup" fxLayout="column"
+        fxLayoutAlign="start">
+    <mat-form-field>
+      <mat-label>
+        Title:
+      </mat-label>
+      <input type="text" formControlName="title" matInput>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>
+        releaseYear:
+      </mat-label>
+      <input type="number" min="1800" [max]="currentYear" formControlName="releaseYear" matInput>
+    </mat-form-field>
+    <mat-form-field>
+  <textarea matInput formControlName="description">
+  </textarea>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>
+        Box office:
+      </mat-label>
+      <input type="number" formControlName="boxOffice" matInput>
+    </mat-form-field>
+    <div>
+      <button type="button" mat-flat-button (click)="fileInput.click()">Choose File</button>
+      <input hidden (change)="onFileSelected($event)" #fileInput type="file" formControlName="poster">
+      <span class="file-name">{{selectedFile?.name}}</span>
+    </div>
+    <button type="submit" mat-raised-button>Create</button>
+  </form>
+
+</div>

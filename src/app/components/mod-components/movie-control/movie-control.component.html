@@ -1,0 +1,45 @@
+<div class="movie-control" fxLayout.gt-sm="row" fxLayout="column" fxLayoutAlign.gt-sm="space-between center"
+     fxLayoutAlign="center start" fxLayoutGap="10">
+  <mat-form-field>
+    <mat-icon matPrefix>search</mat-icon>
+    <input matInput type="search" placeholder="Movie title" class="search-input" [(ngModel)]="search">
+  </mat-form-field>
+
+  <mat-button-toggle-group name="view" aria-label="Movie view" #sortFieldGroup="matButtonToggleGroup"
+                           value="releaseYear">
+    <mat-button-toggle value="title">Title</mat-button-toggle>
+    <mat-button-toggle value="releaseYear">Release year</mat-button-toggle>
+    <mat-button-toggle value="createdAt">Created at</mat-button-toggle>
+  </mat-button-toggle-group>
+
+  <mat-button-toggle-group name="view" aria-label="Movie view" #sortDirectionGroup="matButtonToggleGroup"
+                           value="desc">
+    <mat-button-toggle value="asc">Ascending</mat-button-toggle>
+    <mat-button-toggle value="desc">Desceding</mat-button-toggle>
+  </mat-button-toggle-group>
+</div>
+
+<mat-nav-list>
+  <mat-list-item>
+    <a mat-icon-button routerLink="/movie-create">
+      <mat-icon>add</mat-icon>
+    </a>
+  </mat-list-item>
+  <ng-container
+    *ngFor="let movie of (movies | movieSearch:search | sort:sortFieldGroup.value:sortDirectionGroup.value)">
+    <mat-list-item>
+      <span matListItemTitle>{{ movie.title }}</span>
+      <span matListItemLine>{{ movie.releaseYear }}</span>
+
+      <a routerLink="/movie/{{movie.id}}" mat-icon-button matListItemMeta>
+        <mat-icon>info</mat-icon>
+      </a>
+      <a routerLink="/movie-edit/{{movie.id}}" mat-icon-button matListItemMeta>
+        <mat-icon>edit</mat-icon>
+      </a>
+      <button mat-icon-button (click)="onClickDelete(movie.id)" matListItemMeta>
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-list-item>
+  </ng-container>
+</mat-nav-list>

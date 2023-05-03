@@ -1,0 +1,81 @@
+<section>
+  <div class="movie-control" fxLayout.gt-sm="row" fxLayout="column" fxLayoutAlign.gt-sm="space-between center"
+       fxLayoutAlign="center start" fxLayoutGap="10">
+    <mat-form-field>
+      <mat-icon matPrefix>search</mat-icon>
+      <input matInput type="search" placeholder="Movie title" class="search-input" [(ngModel)]="search">
+    </mat-form-field>
+
+    <mat-button-toggle-group name="view" aria-label="Movie view" #sortFieldGroup="matButtonToggleGroup"
+                             value="releaseYear">
+      <mat-button-toggle value="title">Title</mat-button-toggle>
+      <mat-button-toggle value="releaseYear">Release year</mat-button-toggle>
+      <mat-button-toggle value="createdAt">Created at</mat-button-toggle>
+    </mat-button-toggle-group>
+
+    <mat-button-toggle-group name="view" aria-label="Movie view" #sortDirectionGroup="matButtonToggleGroup"
+                             value="desc">
+      <mat-button-toggle value="asc">Ascending</mat-button-toggle>
+      <mat-button-toggle value="desc">Desceding</mat-button-toggle>
+    </mat-button-toggle-group>
+
+    <mat-button-toggle-group name="view" aria-label="Movie view" #viewGroup="matButtonToggleGroup"
+                             fxLayoutAlign="end" [(ngModel)]="viewType">
+      <mat-button-toggle value="grid" (change)="onViewChange($event.value)">
+        <mat-icon>grid_view</mat-icon>
+      </mat-button-toggle>
+      <mat-button-toggle value="list" (change)=onViewChange($event.value)>
+        <mat-icon>format_list_bulleted</mat-icon>
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+  <ng-container *ngIf="viewGroup.value == 'grid'; then gridView; else listView">
+  </ng-container>
+  <ng-template #gridView>
+    <div class="product-grid"
+         fxLayout="row wrap"
+         fxFlexAlign="center"
+         fxLayoutAlign="space-evenly center"
+         fxLayoutGap="15px 15px grid">
+      <ng-container
+        *ngFor="let movie of (movies | movieSearch:search | sort:sortFieldGroup.value:sortDirectionGroup.value)">
+        <div>
+          <mat-card class="movie-card" matRipple>
+            <img mat-card-image src="http://localhost/assets/img/{{movie.id}}.jpg" alt="Movie" class="movie-image">
+            <mat-card-header>
+              <mat-card-title>{{movie.title}}</mat-card-title>
+              <mat-card-subtitle>{{movie.releaseYear}}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-actions>
+              <button mat-icon-button (click)="onFavouriteClick(movie)">
+                <mat-icon>{{authService.getAuthUser() != null ? authService.getAuthUser().favourites.includes(movie.id) == true ? 'favorite' : 'favorite_border' : 'favorite_border'}}</mat-icon>
+              </button>
+              <a mat-button routerLink="/movie/{{movie.id}}">
+                View full info
+              </a>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+      </ng-container>
+    </div>
+  </ng-template>
+  <ng-template #listView>
+    <mat-list>
+      <ng-container
+        *ngFor="let movie of (movies | movieSearch:search | sort:sortFieldGroup.value:sortDirectionGroup.value)">
+        <mat-list-item>
+          <mat-icon (click)="onFavouriteClick(movie)" matListItemIcon>
+            {{authService.getAuthUser() != null ? authService.getAuthUser().favourites.includes(movie.id) == true ? 'favorite' : 'favorite_border' : 'favorite_border'}}
+          </mat-icon>
+          <div matListItemTitle>{{movie.title}}</div>
+          <div matListItemLine>{{movie.releaseYear}}</div>
+
+          <a mat-button matListItemLine routerLink="/movie/{{movie.id}}">
+            View full info
+          </a>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+      </ng-container>
+    </mat-list>
+  </ng-template>
+</section>

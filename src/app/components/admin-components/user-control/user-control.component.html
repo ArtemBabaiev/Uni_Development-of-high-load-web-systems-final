@@ -1,0 +1,18 @@
+<mat-nav-list>
+  <ng-container
+    *ngFor="let user of users ">
+    <mat-list-item style="height: fit-content">
+      <span matListItemTitle>{{ user.username }}</span>
+
+      <mat-form-field appearance="fill" matListItemMeta >
+        <mat-label>Role</mat-label>
+        <mat-select (selectionChange)="updateUser($event, user)" [value]="user.role">
+          <mat-option *ngFor="let role of roles" [value]="role">
+            {{role.toUpperCase()}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </mat-list-item>
+  </ng-container>
+</mat-nav-list>

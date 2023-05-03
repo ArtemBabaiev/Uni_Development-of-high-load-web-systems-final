@@ -1,0 +1,83 @@
+[
+  {
+    "id": 1,
+    "title": "The Lord of the Rings: The Fellowship of the Ring",
+    "releaseYear": 2001,
+    "description": "Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla.",
+    "boxOffice": 898200000,
+    "createdAt": "9/16/2022"
+  },
+  {
+    "id": 2,
+    "title": "The Lord of the Rings: The Two Towers",
+    "releaseYear": 2002,
+    "description": "Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla.",
+    "boxOffice": 947900000,
+    "createdAt": "2/24/2023"
+  },
+  {
+    "id": 3,
+    "title": "The Lord of the Rings: The Return of the King",
+    "releaseYear": 2003,
+    "description": "In est risus, auctor sed, tristique in, tempus sit amet, sem.",
+    "boxOffice": 1147000000,
+    "createdAt": "11/2/2022"
+  },
+  {
+    "id": 4,
+    "title": "The Da Vinci Code",
+    "releaseYear": 2006,
+    "description": "Quisque porta volutpat erat.",
+    "boxOffice": 760000000,
+    "createdAt": "11/20/2022"
+  },
+  {
+    "id": 5,
+    "title": "Batman: Year One",
+    "releaseYear": 2011,
+    "description": "Sed accumsan felis.",
+    "boxOffice": 6100000,
+    "createdAt": "8/20/2022"
+  },
+  {
+    "id": 6,
+    "title": "The Godfather",
+    "releaseYear": 1972,
+    "description": "Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla.",
+    "boxOffice": 291000000,
+    "createdAt": "9/21/2022"
+  },
+  {
+    "id": 7,
+    "title": "The Godfather Part II",
+    "releaseYear": 1974,
+    "description": "Etiam vel augue.",
+    "boxOffice": 93000000,
+    "createdAt": "3/22/2023"
+  },
+  {
+    "id": 8,
+    "title": "The Godfather Part III",
+    "releaseYear": 1990,
+    "description": "Integer a nibh.",
+    "boxOffice": 136900000,
+    "createdAt": "6/9/2022"
+  },
+  {
+    "id": 9,
+    "title": "Up",
+    "releaseYear": 2009,
+    "description": "Proin at turpis a pede posuere nonummy.",
+    "boxOffice": 731100000,
+    "createdAt": "1/27/2023"
+  },
+  {
+    "id": 10,
+    "title": "The Shawshank Redemption",
+    "releaseYear": 1994,
+    "description": "Donec vitae nisi.",
+    "boxOffice": 73300000,
+    "createdAt": "9/8/2022"
+  }
+]
+

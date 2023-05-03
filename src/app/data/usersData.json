@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "username": "admin",
+    "password": "admin",
+    "role": "admin",
+    "favourites": []
+  },
+  {
+    "id": 2,
+    "username": "mod",
+    "password": "mod",
+    "role": "moderator",
+    "favourites": []
+  },
+  {
+    "id": 3,
+    "username": "user",
+    "password": "user",
+    "role": "user",
+    "favourites": []
+  }
+]

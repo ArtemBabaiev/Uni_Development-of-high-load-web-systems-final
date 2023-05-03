@@ -1,0 +1,15 @@
+.file-name {
+  margin-left: 1rem; /* or whatever margin you require */
+}
+.form-container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  form{
+    margin-top: 25px;
+    width: 400px;
+    button[type='submit']{
+      margin-top: 25px;
+    }
+  }
+}
