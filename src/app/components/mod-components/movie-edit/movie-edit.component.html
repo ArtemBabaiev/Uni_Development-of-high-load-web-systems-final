@@ -25,10 +25,10 @@
     </mat-form-field>
     <div>
       <button type="button" mat-flat-button (click)="fileInput.click()">Choose File</button>
-      <input hidden (change)="onFileSelected($event)" #fileInput type="file" formControlName="poster">
+      <input hidden (change)="onFileSelected($event)" #fileInput type="file" formControlName="poster" accept="image/*">
       <span class="file-name">{{selectedFile?.name}}</span>
     </div>
-    <button type="submit" mat-raised-button>Save changes</button>
+    <button type="submit" mat-raised-button [disabled]="movieGroup.invalid">Save changes</button>
   </form>
 
 </div>
